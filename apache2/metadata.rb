@@ -63,14 +63,14 @@ attribute "apache/log_dir",
 attribute "apache/user",
   :display_name => "Apache User",
   :description => "User Apache runs as",
-  :default => "www-data"
+  :default => "vagrant"
 
 attribute "apache/binary",
   :display_name => "Apache Binary",
   :description => "Apache server daemon program",
   :default => "/usr/sbin/apache2"
 
-attribute "apache/icondir", 
+attribute "apache/icondir",
   :display_name => "Apache Icondir",
   :description => "Directory location for icons",
   :default => "/usr/share/apache2/icons"
@@ -79,7 +79,7 @@ attribute "apache/listen_ports",
   :display_name => "Apache Listen Ports",
   :description => "Ports that Apache should listen on",
   :type => "array",
-  :default => [ "80", "443" ]
+  :default => [ "8000" ]
 
 attribute "apache/contact",
   :display_name => "Apache Contact",
