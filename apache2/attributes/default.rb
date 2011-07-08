@@ -29,7 +29,7 @@ when "redhat","centos","fedora","suse"
 when "debian","ubuntu"
   set[:apache][:dir]     = "/etc/apache2"
   set[:apache][:log_dir] = "/var/log/apache2"
-  set[:apache][:user]    = "www-data"
+  set[:apache][:user]    = "vagrant"
   set[:apache][:binary]  = "/usr/sbin/apache2"
   set[:apache][:icondir] = "/usr/share/apache2/icons"
   set[:apache][:cache_dir] = "/var/cache/apache2"
@@ -43,7 +43,7 @@ when "arch"
 else
   set[:apache][:dir]     = "/etc/apache2"
   set[:apache][:log_dir] = "/var/log/apache2"
-  set[:apache][:user]    = "www-data"
+  set[:apache][:user]    = "vagrant"
   set[:apache][:binary]  = "/usr/sbin/apache2"
   set[:apache][:icondir] = "/usr/share/apache2/icons"
   set[:apache][:cache_dir] = "/var/cache/apache2"
@@ -55,7 +55,7 @@ end
 ###
 
 # General settings
-default[:apache][:listen_ports] = [ "80","443" ]
+default[:apache][:listen_ports] = [ "8000" ]
 default[:apache][:contact] = "ops@example.com"
 default[:apache][:timeout] = 300
 default[:apache][:keepalive] = "On"
