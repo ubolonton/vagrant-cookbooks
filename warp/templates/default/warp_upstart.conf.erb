@@ -5,10 +5,10 @@ start on runlevel [2345]
 stop on runlevel [06]
 
 exec twistd \
-    -u`id -u <%= @user %>` \
-    -g`id -g <%= @group %>` \
-    --pidfile=<%= @pid_file %> \
-    --logfile=<%= @log_file %> \
+    -u`id -u vagrant` \
+    -g`id -g vagrant` \
+    --pidfile=/home/vagrant/twistd.pid \
+    --logfile=/home/vagrant/twistd.log \
     -n warp \
     --siteDir=<%= @site_dir %>
 
