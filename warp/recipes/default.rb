@@ -1,5 +1,4 @@
 require_recipe "git"
-require_recipe "postgresql::server"
 require_recipe "python"
 
 
