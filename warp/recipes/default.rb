@@ -24,9 +24,13 @@ cd $warp_dir
 if git clone https://github.com/brendonh/warp.git
 then
     cd warp
-    # This is a stable version
-    git checkout b3cc2a022c6053c45a4a82be287e181bf8dc8556
+    # For projects that needs a specific version
+    [[ -n $WARP_VERSION ]] && git checkout $WARP_VERSION
     python setup.py install
 fi
     EOH
+
+    environment ({
+        "WARP_VERSION" => node["warp"]["version"],
+    })
 end
