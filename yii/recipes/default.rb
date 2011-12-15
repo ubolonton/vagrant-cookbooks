@@ -3,7 +3,7 @@ require_recipe "php"
 bash "install_yii" do
 
     code <<-EOH
-if [ ! -d /opt/yii ]
+if [ ! -h /opt/yii ]
 then
     YII_FILE="yii-$YII_VERSION.tar.gz"
     cd /opt

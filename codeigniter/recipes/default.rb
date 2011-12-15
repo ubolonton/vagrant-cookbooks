@@ -3,7 +3,8 @@ require_recipe "php"
 bash "install_codeigniter" do
 
     code <<-EOH
-if [ ! -d /opt/codeigniter ]
+apt-get install unzip
+if [ ! -h /opt/codeigniter ]
 then
     cd /opt
     CIFILE="CodeIgniter_1.7.3"
