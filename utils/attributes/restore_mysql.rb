@@ -1,3 +1,3 @@
-default[:psql][:database] = "vagrant"
-default[:psql][:user] = "vagrant"
-default[:psql][:password] = "vagrant"
+default["mysql"]["database"] = node["project"]["name"]
+default["mysql"]["user"] = node["project"]["name"]
+default["mysql"]["password"] = "secret"
