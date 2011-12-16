@@ -4,17 +4,17 @@ bash "restore_mysql" do
 mysql --user=root --password=vagrant <<EOSQL
     grant usage on *.* to $USER;
     drop user $USER;
-    drop database if exists $DB_NAME;
+    drop database if exists $DATABASE;
     create user $USER identified by '$PASSWORD';
-    create database $DB_NAME;
-    grant all on $DB_NAME.* to $USER;
+    create database $DATABASE;
+    grant all on $DATABASE.* to $USER;
 EOSQL
-mysql --user=$USER --password=$PASSWORD $DB_NAME < /vagrant/dump.sql
+mysql --user=$USER --password=$PASSWORD $DATABASE < /vagrant/dump.sql
     EOH
 
     environment ({
         "USER" => node["mysql"]["user"],
-        "DB_NAME" => node["mysql"]["db_name"],
+        "DATABASE" => node["mysql"]["database"],
         "PASSWORD" => node["mysql"]["password"],
     })
 end
