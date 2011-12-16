@@ -17,8 +17,9 @@ end
 
 
 bash "install_warp" do
+
     code <<-EOH
-warp_dir=/opt/cogini/lib/
+warp_dir=/opt/
 mkdir -p $warp_dir
 cd $warp_dir
 if git clone https://github.com/brendonh/warp.git

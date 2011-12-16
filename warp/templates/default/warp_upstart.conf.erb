@@ -1,5 +1,5 @@
 description "Start the twistd process that serves warp webapps"
-author "Hoang Xuan Phu <phu@cogini.com>"
+author "Hoang Xuan Phu <phunehehe@gmail.com>"
 
 start on runlevel [2345]
 stop on runlevel [06]
@@ -7,8 +7,8 @@ stop on runlevel [06]
 exec twistd \
     -u`id -u vagrant` \
     -g`id -g vagrant` \
-    --pidfile=/home/vagrant/twistd.pid \
-    --logfile=/home/vagrant/twistd.log \
+    --pidfile=/vagrant/twistd.pid \
+    --logfile=/vagrant/twistd.log \
     -n warp \
     --siteDir=<%= @site_dir %>
 
