@@ -11,8 +11,8 @@ psql $DATABASE < /vagrant/dump.sql
     EOH
 
     environment ({
-        "USER" => node["mysql"]["user"],
-        "DATABASE" => node["mysql"]["database"],
-        "PASSWORD" => node["mysql"]["password"],
+        "USER" => node["psql"]["user"],
+        "DATABASE" => node["psql"]["database"],
+        "PASSWORD" => node["psql"]["password"],
     })
 end
