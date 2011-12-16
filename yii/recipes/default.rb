@@ -21,6 +21,15 @@ mkdir -p /vagrant/$PROJECT_NAME/protected/runtime
 
     environment ({
         "YII_VERSION" => node["yii"]["version"],
-        "PROJECT_NAME" => node["project"]["name"],
+        "PROJECT_NAME" => node["project"],
     })
+end
+
+
+config_dir = node["yii"]["config_dir"]
+
+%w(main db console modules).each do |config_file|
+    template "#{config_dir}/#{config_file}.php" do
+        source "#{config_file}.php"
+    end
 end

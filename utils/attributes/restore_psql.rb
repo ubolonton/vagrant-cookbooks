@@ -1,3 +1,3 @@
-default["psql"]["database"] = node["project"]["name"]
-default["psql"]["user"] = node["project"]["name"]
+default["psql"]["database"] = node["project"]
+default["psql"]["user"] = node["project"]
 default["psql"]["password"] = "secret"
