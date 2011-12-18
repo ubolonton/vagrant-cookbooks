@@ -30,6 +30,7 @@ config_dir = node["yii"]["config_dir"]
 
 %w(main db console modules).each do |config_file|
     template "#{config_dir}/#{config_file}.php" do
+        cookbook "vagrant_main"
         source "#{config_file}.php"
     end
 end
