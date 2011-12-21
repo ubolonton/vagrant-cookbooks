@@ -6,8 +6,8 @@ bash "restore_psql" do
 dropuser $USER
 dropdb $DATABASE
 createuser --no-superuser --no-createdb --no-createrole $USER
-createdb $DATABASE -l POSIX -E UTF8 -T template0
-psql $DATABASE < /vagrant/dump.sql
+createdb --locale POSIX --encoding UTF8 --template template0 --owner $USER $DATABASE
+psql -U$USER $DATABASE < /vagrant/dump.sql
     EOH
 
     environment ({
