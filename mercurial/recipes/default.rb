@@ -1,9 +1,8 @@
 #
-# Author:: Seth Chisamore <schisamo@opscode.com>
-# Cookbook Name:: python
-# Recipe:: package
+# Cookbook Name:: mercurial
+# Recipe:: default
 #
-# Copyright 2011, Opscode, Inc.
+# Copyright 2009, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,23 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-python_pkgs = value_for_platform(
-  ["debian","ubuntu"] => {
-    "default" => ["python","python-dev"]
-  },
-  ["centos","redhat","fedora"] => {
-    "default" => ["python26","python26-devel"]
-  },
-  ["freebsd"] => {
-    "default" => ["python"]
-  },
-  "default" => ["python","python-dev"]
-)
-
-python_pkgs.each do |pkg|
-  package pkg do
-    action :install
-  end
+package "mercurial" do
+  action :upgrade
 end
-
