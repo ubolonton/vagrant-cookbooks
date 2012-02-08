@@ -13,6 +13,5 @@ psql -U$USER $DATABASE < /vagrant/dump.sql
     environment ({
         "USER" => node["psql"]["user"],
         "DATABASE" => node["psql"]["database"],
-        "PASSWORD" => node["psql"]["password"],
     })
 end
