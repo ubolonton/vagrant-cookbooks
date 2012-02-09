@@ -29,8 +29,12 @@ end
 config_dir = node["yii"]["config_dir"]
 
 %w(main db console modules).each do |config_file|
-    template "#{config_dir}/#{config_file}.php" do
+    dest_file = "#{config_dir}/#{config_file}.php"
+    template dest_file do
         cookbook "vagrant_main"
         source "#{config_file}.php"
+        not_if do
+            File.exists?(dest_file)
+        end
     end
 end
