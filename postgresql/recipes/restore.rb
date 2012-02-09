@@ -1,3 +1,10 @@
+bash "restart_psql" do
+
+    code <<-EOH
+service postgresql-8.4 restart
+    EOH
+end
+
 bash "restore_psql" do
 
     user "postgres"
