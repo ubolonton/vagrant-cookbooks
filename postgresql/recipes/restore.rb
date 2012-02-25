@@ -2,6 +2,8 @@ bash "restart_psql" do
 
     code <<-EOH
 service postgresql-8.4 restart
+chmod +rx /vagrant
+chmod +r /vagrant/dump.sql
     EOH
 end
 
