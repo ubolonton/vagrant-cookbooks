@@ -1,20 +1,21 @@
+require_recipe "git"
 require_recipe "php"
-
 
 bash "install_yii" do
 
     code <<-EOH
-if [ ! -h /opt/yii ]
+if [ ! -d /opt/yii/.git ]
 then
-    YII_FILE="yii-$YII_VERSION.tar.gz"
-    cd /opt
-    wget http://yii.googlecode.com/files/$YII_FILE
-    tar -xvf $YII_FILE
-    ln -s "yii-$YII_VERSION" yii
-    rm $YII_FILE
+    rm -rf /opt/yii*
 fi
 
-ln -s /opt/yii /vagrant/yii
+cd /opt
+git clone https://github.com/yiisoft/yii.git
+cd yii
+git fetch
+git checkout $YII_VERSION
+
+ln -s /opt/yii /vagrant
 mkdir -p /vagrant/$PROJECT_NAME/assets
 mkdir -p /vagrant/$PROJECT_NAME/protected/runtime
     EOH
