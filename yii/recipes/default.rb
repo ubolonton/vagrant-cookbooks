@@ -15,13 +15,16 @@ cd yii
 git fetch
 git checkout $YII_VERSION
 
-ln -s /opt/yii /vagrant
-mkdir -p /vagrant/$PROJECT_NAME/assets
-mkdir -p /vagrant/$PROJECT_NAME/protected/runtime
+rm -rf $YII_SYMLINK
+ln -s /opt/yii $YII_SYMLINK
+mkdir -p $YII_BASE/assets
+mkdir -p $YII_BASE/protected/runtime
     EOH
 
     environment ({
         "YII_VERSION" => node["yii"]["version"],
+        "YII_BASE" => node["yii"]["base_dir"],
+        "YII_SYMLINK" => node["yii"]["symlink"],
         "PROJECT_NAME" => node["project"],
     })
 end
