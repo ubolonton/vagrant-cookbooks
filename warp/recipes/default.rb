@@ -1,5 +1,5 @@
-require_recipe "git"
-require_recipe "python"
+include_recipe "git"
+include_recipe "python"
 
 
 %w(libpq-dev).each do |pkg|
