@@ -9,7 +9,7 @@ include_recipe "python"
 end
 
 
-%w(twisted storm Mako pytz simplejson psycopg2).each do |pkg|
+%w(twisted storm Mako==0.4.2 pytz simplejson psycopg2).each do |pkg|
     python_pip pkg do
         action :install
     end
